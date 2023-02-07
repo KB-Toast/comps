@@ -1,5 +1,19 @@
+import { Fragment } from "react";
+
+// Alternative (worse) solution to the "assigning a key without adding a HTML element" issue below
+// function Echo({ children }) {
+//   return children;
+// }
+
 function Table({ data, config, keyFn }) {
   const renderedHeaders = config.map((column) => {
+    if (column.header) {
+      // assigning a key without adding a HTML element, can't have div nor th there
+      // we could use a component, such as "Echo there"
+      // instead we're going to use a Fragment
+      //   return <Echo key={column.label}>{column.header()}</Echo>;
+      return <Fragment key={column.label}>{column.header()}</Fragment>;
+    }
     return <th key={column.label}>{column.label}</th>;
   });
 
