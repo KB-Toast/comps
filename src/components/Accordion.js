@@ -15,6 +15,7 @@ function Accordion({ items }) {
       setExpandedIndex(index);
     }
   };
+  remove that part of comment
   */
 
   // Functional version, fixing the "bug"
